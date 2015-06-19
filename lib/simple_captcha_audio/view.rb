@@ -4,9 +4,11 @@ module SimpleCaptcha
     alias_method :__simple_captcha_options__, :simple_captcha_options
 
     def simple_captcha_options(options = {})
-      key = simple_captcha_key(options[:object])
+      super_options = __simple_captcha_options__(options)
 
-      __simple_captcha_options__(options).merge({
+      key = super_options[:field_value]
+
+      super_options.merge({
         audio: simple_captcha_audio(key, options)
       })
     end
@@ -15,7 +17,7 @@ module SimpleCaptcha
       def simple_captcha_audio(simple_captcha_key, options = {})
         url = simple_captcha_audio_url simple_captcha_key, options: options
         id  = simple_captcha_audio_id(options)
-        tag('audio', :src => url, :id => id)
+        tag('audio', :src => url, :id => id, controls: true)
       end
 
       def simple_captcha_audio_url(simple_captcha_key, options = {})
