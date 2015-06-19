@@ -30,7 +30,11 @@ module SimpleCaptcha
       end
 
       def simple_captcha_audio_id(options={})
-        "simple_captcha-audio-#{options[:field_value][0..10]}"
+        "#{ simple_captcha_id_prefix }-#{options[:field_value][0..10]}"
+      end
+
+      def simple_captcha_id_prefix
+        "simple_captcha-audio"
       end
   end
 end
