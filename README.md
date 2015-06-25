@@ -40,6 +40,13 @@ brew install espeak lame
 brew install flac sox chromaprint
 ```
 
+On ubuntu system
+
+```
+apt-get install espeak lame
+apt-get install libsox-fmt-all sox libchromaprint-dev
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/simple_captcha_audio/fork )
